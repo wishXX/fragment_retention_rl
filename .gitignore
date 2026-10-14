@@ -1,0 +1,65 @@
+# Python environments
+venv/
+.venv/
+
+# IDE and local tooling
+.idea/
+.vscode/
+.pytest_cache/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Proprietary source data
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.xlsm
+data/raw/*.xls
+
+# Private / heavyweight research artifacts
+outputs/models/
+outputs/cache/
+outputs/logs/
+outputs/archive/
+
+# Temporary files
+*.tmp
+*.bak
+~$*
+# Public release: proprietary data and derived records
+/data/raw/*
+!/data/raw/README.txt
+/outputs/audit/
+/outputs/models/
+/outputs/cache/
+/outputs/logs/
+/outputs/archive/
+
+# Private fragment chronology and fine-grained evaluation artifacts
+/outputs/fragments/formal_fragment_inventory.csv
+
+# Current public output layout: exclude private folds, origins and staging
+/outputs/results/evaluator/evaluator_folds/
+/outputs/results/evaluator/*_rows.csv
+/outputs/results/retention/formal_ope_staging/
+/outputs/results/retention/*origin_level*
+/outputs/results/retention/natural_fragment_timeline.png
+/outputs/results/retention/manuscript_*.csv
+/outputs/results/sensitivity/discount_factor_095/*origin_level*
+
+# Sensitive site metadata and machine-specific files
+/outputs/fragments/fragment_orders.json
+/outputs/qa/*raw*
+/outputs/qa/*path*
+/config/*local*
+/config/*private*
+/config/*mapping*
+*.env
+.env.*
+*.pem
+*.key

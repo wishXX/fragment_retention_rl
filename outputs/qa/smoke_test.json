@@ -1,0 +1,32 @@
+{
+  "condition": "C1",
+  "transitions": 335,
+  "formal_updates": 335,
+  "smoke_updates": 10,
+  "iql_action_min": 35.779334008693695,
+  "iql_action_max": 45.4609090089798,
+  "cql_action_min": 39.29791323840618,
+  "cql_action_max": 41.41172721982002,
+  "iql_last_log": {
+    "step": 10,
+    "value_loss": 0.0013330705696716905,
+    "critic_loss": 1.5617213249206543,
+    "actor_loss": 8.1290864944458,
+    "mean_adv": 0.008166481740772724,
+    "actor_lr": 0.0
+  },
+  "cql_last_log": {
+    "step": 10,
+    "actor_loss": -4.759835720062256,
+    "q_loss": 91.21182250976562,
+    "bellman_loss": 2.0565757751464844,
+    "cql_penalty": 89.15524291992188,
+    "alpha": 0.9990001916885376,
+    "dataset_q": -0.7388836145401001,
+    "actor_phase": "sac",
+    "policy_eval_start_steps": 0
+  },
+  "evaluation_origins_available": 11,
+  "iql_smoke_eval_mean_return": -1.8129716983065733,
+  "cql_smoke_eval_mean_return": -1.8722542491367802
+}

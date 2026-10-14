@@ -1,0 +1,9 @@
+{
+  "joint_valid_hours": 1288,
+  "natural_fragments": 40,
+  "f1_rtp_scale": 1178.965671641791,
+  "state_dim": 80,
+  "action_dim": 8,
+  "f1_transitions": 335,
+  "all_transitions": 1098
+}

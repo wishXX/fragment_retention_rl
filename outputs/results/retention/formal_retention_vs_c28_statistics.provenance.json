@@ -1,0 +1,9 @@
+{
+  "source": "outputs/results/retention/formal_retention_summary_tc.csv",
+  "source_sha256": "307a525baa83839247084375bdafc9610e3c8706cfdb886d0fb037196768b20b",
+  "statistics_sha256": "5da6c616f7bea0e6a4111c9cfcb82c858883b8de0c85825e540f233dc0a9ed30",
+  "comparison": "Ck minus C28, matched seeds",
+  "bootstrap_repetitions": 20000,
+  "bootstrap_seed": 236,
+  "holm_family": "seven comparisons within each algorithm/evaluator"
+}

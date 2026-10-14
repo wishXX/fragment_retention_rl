@@ -1,0 +1,151 @@
+# Public configuration: anonymized controller aliases.
+# Replace aliases in a private, untracked configuration for proprietary raw data.
+project:
+  name: offline_rl_fragment_retention
+  seed: 2026
+  device: cuda
+  torch_threads: 2
+data:
+  raw_glob: data/raw/*
+  timestamp_column: Event Time
+  controller_column: Controller
+  timestamp_format: '%m/%d/%Y %H:%M'
+  sampling_hours: 1
+  indoor_representation:
+  - mean
+  - min
+  - std
+  - sensorwise_underheat_mse
+  outdoor_representation:
+  - mean
+  - std
+  rtp_representation:
+  - individual_channels
+  - total_sum
+signals:
+  action_controllers:
+  - FTS_01
+  - FTS_02
+  - FTS_03
+  - FTS_04
+  - FTS_05
+  - FTS_06
+  - FTS_07
+  - FTS_08
+  rtp_controllers:
+  - RTP_01
+  - RTP_02
+  - RTP_03
+  - RTP_04
+  - RTP_05
+  - RTP_06
+  - RTP_07
+  - RTP_08
+  - RTP_09
+  indoor_controllers:
+  - TIN_01
+  - TIN_02
+  - TIN_03
+  - TIN_04
+  - TIN_05
+  - TIN_06
+  - TIN_07
+  - TIN_08
+  - TIN_09
+  - TIN_10
+  - TIN_11
+  - TIN_12
+  - TIN_13
+  - TIN_14
+  - TIN_15
+  - TIN_16
+  - TIN_17
+  - TIN_18
+  outdoor_controllers:
+  - TOUT_01
+  - TOUT_02
+  - TOUT_03
+  - TOUT_04
+  - TOUT_05
+  - TOUT_06
+  - TOUT_07
+  phrases:
+    indoor: room temperature
+    outdoor: outdoor temperature
+    fts: flow temperature setpoint
+    pm: pump modulation
+    rtp_any:
+    - real-time power
+    - real time power
+fragmentation:
+  min_hours: 1
+  ordering_primary: duration_descending
+  ordering_sensitivity: temporal_proximity_to_longest
+state:
+  scalar_lags: 2
+  fts_history_hours: 4
+  pm_required_indices:
+  - -2
+  - -1
+  - 0
+  - 1
+  pm_required_value: 100.0
+  pm_tolerance: 1.0e-06
+reward:
+  target_temp_c: 18.0
+  underheat_shape: quadratic
+  underheat_alpha: 1.5008240210556434
+  rtp_scale_source: longest_baseline_next_state_mean
+  expected_rtp_scale: 1178.965671641791
+  rtp_scale_tolerance: 1.0e-06
+  explicit_overheat_penalty: false
+action:
+  primary_lower_c: 30.0
+  primary_upper_c: 50.0
+  normalized_lower: -1.0
+  normalized_upper: 1.0
+  exclude_outside_primary: false
+offline_rl:
+  gamma: 0.99
+  batch_size: 256
+  benchmark_exposures_per_transition: 256.0
+  terminal_for_gap: 0.0
+  state_scaler: condition_specific_standard
+  iql:
+    actor_lr: 0.0003
+    value_lr: 0.0003
+    critic_lr: 0.0003
+    hidden_dims:
+    - 256
+    - 256
+    expectile: 0.7
+    temperature: 3.0
+    target_tau: 0.005
+    max_adv_weight: 100.0
+  cql:
+    q_lr: 0.0003
+    hidden_dims:
+    - 256
+    - 256
+    - 256
+    target_tau: 0.005
+    cql_temperature: 1.0
+    num_random: 10
+    automatic_entropy_tuning: true
+    deterministic_backup: true
+    min_q_version: 3
+    policy_eval_start_fraction: 0.04
+evaluation:
+  horizon_hours: 2
+  gamma: 0.99
+  evaluator_training_scope: leakage_safe_crossfit
+  require_one_step_validation: true
+  require_multistep_validation: true
+  preserve_evaluator_disagreement: true
+  crossfit_scheme: leave_one_natural_fragment_out
+  arx_estimator: tc_structured_ridge
+  xgboost_parameter_policy: documented_library_defaults_no_outcome_tuning
+  target_policy_support_metric: fold_standardized_nearest_neighbor_distance
+  arx_base_ridge_alpha: 1.0
+  arx_tc_lambda: 3.0
+  arx_tc_rho: 0.99

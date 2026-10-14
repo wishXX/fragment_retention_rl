@@ -1,0 +1,19 @@
+{
+  "status": "formal_result_package_frozen",
+  "structural_checks": {
+    "rows_640": true,
+    "conditions_exact": true,
+    "algorithms_exact": true,
+    "evaluators_exact": true,
+    "seeds_exact": true,
+    "horizon_2h": true,
+    "finite_values": true,
+    "finite_support": true,
+    "20_seeds_every_cell": true
+  },
+  "primary_horizon_hours": 2,
+  "primary_training_gamma": 0.99,
+  "primary_evaluation_gamma": 0.99,
+  "sensitivity_evaluation_gamma": 0.95,
+  "next_stage": "manuscript results and discussion; no additional primary model training authorized"
+}

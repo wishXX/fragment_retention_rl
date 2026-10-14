@@ -1,0 +1,25 @@
+{
+  "status": "formal_result_package_integrity_passed",
+  "structural_checks": {
+    "rows_640": true,
+    "conditions_exact": true,
+    "algorithms_exact": true,
+    "evaluators_exact": true,
+    "seeds_exact": true,
+    "horizon_2h": true,
+    "finite_values": true,
+    "finite_support": true,
+    "20_seeds_every_cell": true,
+    "statistics_rows_28": true,
+    "statistics_reference_c28": true,
+    "retention_transition_counts_exact": true,
+    "c28_transition_retention_100pct": true
+  },
+  "primary_result_file": "outputs/results/retention/formal_retention_summary_tc.csv",
+  "primary_statistics_file": "outputs/results/retention/formal_retention_vs_c28_statistics.csv",
+  "primary_horizon_hours": 2,
+  "primary_training_gamma": 0.99,
+  "primary_evaluation_gamma": 0.99,
+  "inferential_reference": "C28 full eligible-transition retention",
+  "note": "Integrity pass does not freeze methodological interpretation or select an optimal retention condition; it records the current final result package and checks."
+}

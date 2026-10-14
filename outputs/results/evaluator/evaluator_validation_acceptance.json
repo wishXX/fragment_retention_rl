@@ -1,0 +1,32 @@
+{
+  "accepted": true,
+  "formal_horizon_hours": 2,
+  "representation": "80-D B+U state; 13 physical successor predictions and 1 derived underheating quantity (Comfort_U)",
+  "acceptance_rule": "Each evaluator is assessed independently under leave-one-natural-fragment-out validation. A formal 2 h channel requires complete fragment coverage and positive recursive RMSE skill versus matched persistence for both Tin_Mean and RTP_Total. The 13 physical-target metrics and derived underheating metric are reported as diagnostics and do not introduce a post hoc all-target-positive threshold.",
+  "required_channels": [
+    "ARX",
+    "XGBoost"
+  ],
+  "accepted_channels": [
+    "ARX",
+    "XGBoost"
+  ],
+  "rejected_channels": [],
+  "decisions": {
+    "ARX": {
+      "accepted_for_formal_2h_channel": true,
+      "coverage_complete": true,
+      "two_hour_tin_mean_rmse_skill_vs_persistence": 0.5770792914449208,
+      "two_hour_rtp_total_rmse_skill_vs_persistence": 0.24441666261007755,
+      "qualification": "PASS"
+    },
+    "XGBoost": {
+      "accepted_for_formal_2h_channel": true,
+      "coverage_complete": true,
+      "two_hour_tin_mean_rmse_skill_vs_persistence": 0.27547079444552325,
+      "two_hour_rtp_total_rmse_skill_vs_persistence": 0.28820417804547604,
+      "qualification": "PASS"
+    }
+  },
+  "target_policy_support_requirement": "State-action support distances must be recorded during every formal policy rollout and reported separately by evaluator."
+}

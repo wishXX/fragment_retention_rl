@@ -1,0 +1,16 @@
+{
+  "analysis_role": "evaluation-discount sensitivity",
+  "source_summary_sha256": "307a525baa83839247084375bdafc9610e3c8706cfdb886d0fb037196768b20b",
+  "primary_policy_training_gamma": 0.99,
+  "primary_evaluation_gamma": 0.99,
+  "sensitivity_evaluation_gamma": 0.95,
+  "policy_retraining": false,
+  "evaluator_refitting": false,
+  "rollout_recomputation": false,
+  "horizon_hours": 2,
+  "comparison_design": "each earlier retention condition Ck versus full retention C28",
+  "bootstrap_repetitions": 20000,
+  "bootstrap_unit": "matched policy-training seed",
+  "max_abs_primary_reconstruction_error": 0.0,
+  "interpretation_guardrail": "This changes evaluation discounting only; it does not retrain IQL/CQL at gamma=0.95."
+}
